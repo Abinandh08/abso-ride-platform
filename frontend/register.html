@@ -4,38 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Abso Ride - Registration</title>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <section class="booking">
+
         <h2>Create Your Account</h2>
+
+        <p>Join Abso Ride and enjoy your journey!</p>
 
         <form id="registerForm">
 
             <label>Full Name</label>
-            <input type="text" id="fullName"
-                   placeholder="Enter your name" required>
+            <input
+                type="text"
+                id="fullName"
+                placeholder="Enter your full name"
+                required
+            >
 
             <label>Email Address</label>
-            <input type="email" id="registerEmail"
-                   placeholder="Enter your email" required>
+            <input
+                type="email"
+                id="registerEmail"
+                placeholder="Enter your email"
+                required
+            >
 
             <label>Phone Number</label>
-            <input type="tel" id="phone"
-                   placeholder="Enter phone number" required>
+            <input
+                type="tel"
+                id="phone"
+                placeholder="Enter your phone number"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                required
+            >
 
             <label>Password</label>
-            <input type="password" id="registerPassword"
-                   placeholder="Create password" required minlength="8">
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Create a password"
+                minlength="8"
+                required
+            >
 
-            <button type="submit">REGISTER</button>
+            <label>Confirm Password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                minlength="8"
+                required
+            >
+
+            <button type="submit">CREATE ACCOUNT</button>
 
         </form>
 
-        <p>Already registered?
+        <p>
+            Already have an account?
             <a href="login.html">Login here</a>
+        </p>
+
+        <p>
+            <a href="index.html">Back to Home</a>
         </p>
 
     </section>
