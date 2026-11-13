@@ -1,49 +1,102 @@
 
+/* =====================================
+   ABSO RIDE - MAIN JAVASCRIPT
+===================================== */
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    console.log("ABSO RIDE JAVASCRIPT LOADED!");
+    console.log("ABSO RIDE PLATFORM LOADED!");
+
+    // =================================
+    // 1. BOOKING FORM
+    // =================================
 
     const bookingForm = document.getElementById("bookingForm");
 
-    if (!bookingForm) {
-        console.error("Booking form not found!");
-        return;
+    if (bookingForm) {
+
+        bookingForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const pickup = document.getElementById("pickup").value.trim();
+            const drop = document.getElementById("drop").value.trim();
+            const vehicle = document.getElementById("vehicle").value;
+
+            if (!pickup || !drop || !vehicle) {
+                alert("Please complete all booking details.");
+                return;
+            }
+
+            if (pickup.toLowerCase() === drop.toLowerCase()) {
+                alert("Pickup and destination cannot be the same.");
+                return;
+            }
+
+            const bookingId = "ABS" + Date.now().toString().slice(-8);
+
+            alert(
+                "BOOKING REQUEST SUCCESSFUL!\n\n" +
+                "Booking ID: " + bookingId +
+                "\nPickup: " + pickup +
+                "\nDestination: " + drop +
+                "\nVehicle: " + vehicle
+            );
+
+            bookingForm.reset();
+
+        });
+
     }
 
-    console.log("Booking form found successfully!");
+    // =================================
+    // 2. REGISTRATION FORM
+    // =================================
 
-    bookingForm.addEventListener("submit", function (event) {
+    const registerForm = document.getElementById("registerForm");
 
-        event.preventDefault();
+    if (registerForm) {
 
-        console.log("BOOK NOW BUTTON CLICKED!");
+        registerForm.addEventListener("submit", function (event) {
 
-        const pickup = document.getElementById("pickup").value.trim();
-        const drop = document.getElementById("drop").value.trim();
-        const vehicle = document.getElementById("vehicle").value;
+            event.preventDefault();
 
-        if (!pickup || !drop || !vehicle) {
-            alert("Please fill in all booking details.");
-            return;
-        }
+            const name = document.getElementById("fullName").value.trim();
+            const email = document.getElementById("registerEmail").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const password = document.getElementById("registerPassword").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
 
-        if (pickup.toLowerCase() === drop.toLowerCase()) {
-            alert("Pickup and destination cannot be the same.");
-            return;
-        }
+            if (!name || !email || !phone || !password || !confirmPassword) {
+                alert("Please fill in all fields.");
+                return;
+            }
 
-        const bookingId = "ABS" + Date.now().toString().slice(-8);
+            if (!/^[0-9]{10}$/.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return;
+            }
 
-        alert(
-            "ABSO RIDE BOOKING SUCCESSFUL!\n\n" +
-            "Booking ID: " + bookingId +
-            "\nPickup: " + pickup +
-            "\nDestination: " + drop +
-            "\nVehicle: " + vehicle
-        );
+            if (password.length < 8) {
+                alert("Password must contain at least 8 characters.");
+                return;
+            }
 
-        bookingForm.reset();
+            if (password !== confirmPassword) {
+                alert("Passwords do not match. Please try again.");
+                return;
+            }
 
-    });
+            alert(
+                "Registration details validated successfully!\n\n" +
+                "Welcome to Abso Ride, " + name + "!\n\n" +
+                "Secure account creation will be available after backend integration."
+            );
+
+            registerForm.reset();
+
+        });
+
+    }
 
 });
