@@ -1,28 +1,78 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Abso Ride Platform</title>
-
-    <!-- CSS Connection -->
+    <title>Abso Ride - Book Your Ride</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>Welcome to Abso Ride</h1>
-        <p>Your Ride, Your Journey!</p>
-    </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <h2>ABSO RIDE</h2>
 
-    <main>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#booking">Book Ride</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Your Ride, Your Journey.</h1>
+        <p>Travel comfortably. Travel safely. Travel with Abso Ride.</p>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+
         <h2>Book Your Ride</h2>
-        <p>Welcome to the Abso Ride Platform.</p>
-    </main>
 
-    <!-- JavaScript Connection -->
+        <form id="bookingForm">
+
+            <label>Pickup Location</label>
+            <input
+                type="text"
+                id="pickup"
+                placeholder="Enter pickup location"
+                required
+            >
+
+            <label>Drop Location</label>
+            <input
+                type="text"
+                id="drop"
+                placeholder="Enter destination"
+                required
+            >
+
+            <label>Select Vehicle</label>
+            <select id="vehicle" required>
+                <option value="">Choose vehicle</option>
+                <option value="Bike">Bike</option>
+                <option value="Auto">Auto</option>
+                <option value="Car">Car</option>
+            </select>
+
+            <button type="submit">BOOK NOW</button>
+
+        </form>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Abso Ride</h2>
+        <p>Your trusted platform for convenient ride booking.</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Abso Ride. All rights reserved.</p>
+    </footer>
+
     <script src="js/script.js"></script>
 
 </body>
